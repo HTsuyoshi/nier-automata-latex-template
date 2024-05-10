@@ -1,0 +1,32 @@
+\documentclass[12pt,a4paper,onecolumn,titlepage]{nierAutomata}
+
+\usepackage{eso-pic,graphicx,wrapfig}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage[
+    backend=biber,
+    style=alphabetic
+]{biblatex}
+\addbibresource{ref.bib}
+
+\begin{document}
+\AddToShipoutPicture{\input{tikz/background}}
+
+\include{chapters/00 - Title Page}
+\include{chapters/01 - Table of Contents}
+
+\pagestyle{fancy}
+\pagecolor{background}
+\color{main}
+\fancyfoot[C]{\thepage}
+
+\include{chapters/02 - Sections}
+\include{chapters/03 - Text}
+\include{chapters/04 - Blocks}
+\include{chapters/05 - Tikz}
+\include{chapters/06 - Tabular}
+\include{chapters/07 - Graphics}
+\include{chapters/08 - Design}
+
+\printbibliography
+\end{document}

@@ -1,0 +1,23 @@
+\begin{tikzpicture}[remember picture, overlay]
+    \nierbigdiamond{20}
+    %\nierbigquest{35}
+    %\nierbigitem{10}
+    
+    % Top Line
+    \draw[main, line width=0.5mm] ($(current page.north west) + (0,-0.8)$) -- ($(current page.north east) + (0,-0.8)$);
+    \draw[main, dash pattern={on 0.3cm off 1.2cm}, line width=1mm] ($(current page.north west) + (2.1,-0.85)$) -- ($(current page.north east) + (-2.1,-0.85)$);
+
+    % Bottom Line
+    \draw[main, line width=0.5mm] ($(current page.south west) + (0,0.8)$) -- ($(current page.south east) + (0,0.8)$);
+    \draw[main, dash pattern={on 0.3cm off 1.2cm}, line width=1mm] ($(current page.south west) + (2.1,0.85)$) -- ($(current page.south east) + (-2.1,0.85)$);
+
+    % Ball Pattern
+    \foreach \r in {0,...,10}{
+        \draw[main, fill=main] ($(2.85,1.0) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(3.15,1.0) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(3.0,1.23) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(current page.north west) + (2.85,-1.0) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(current page.north west) + (3.15,-1.0) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(current page.north west) + (3.0,-1.23) + (\r*1.5,0)$) circle (0.05);
+    }
+\end{tikzpicture}

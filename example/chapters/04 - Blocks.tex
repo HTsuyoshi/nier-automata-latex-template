@@ -1,0 +1,93 @@
+\section{Blocks}
+
+\subsection{Quote blocks}
+\subsubsection{Quote block 1}
+
+\lipsum[10]
+
+\begin{center}
+\begin{nierbox}[title=Important note]
+  \nierdiamond \lipsum[11]
+\end{nierbox}
+\end{center}
+
+\subsubsection{Quote block 2}
+
+\begin{wrapfigure}{r}{70mm}
+\begin{nierbox}[title=Some more important side-box, width=70mm, height=25mm]
+    A little example of a side note talking about an super important topic
+\end{nierbox}
+\end{wrapfigure}
+
+\lipsum[14]
+
+\subsubsection{Quote block 3}
+
+\lipsum[15]
+
+\begin{center}
+\begin{nierbox}
+  \nierdiamond\lipsum[16]
+\end{nierbox}
+\end{center}
+
+\subsubsection{Quote block 4}
+
+\lipsum[17]
+
+\begin{center}
+\begin{nierquotebox}
+    \nierdiamond\lipsum[18]
+\end{nierquotebox}
+\end{center}
+
+\subsubsection{Quote block 5}
+
+\lipsum[19]
+
+\begin{center}
+\begin{nierquote}
+  "For the glory of mankind" - 2B Probably
+\end{nierquote}
+\end{center}
+
+\lipsum[22]
+
+\subsection{Coding Blocks}
+
+\subsubsection{Coding Block 1}
+
+\lipsum[23]
+
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\begin{lstlisting}[language=bash]
+# In a namespace
+kubectl api-resources --namespaced=true
+
+# Not in a namespace
+kubectl api-resources --namespaced=false
+\end{lstlisting}
+\end{minipage}
+\end{center}
+
+\subsubsection{Coding Block 2}
+
+\lipsum[24]
+
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\begin{lstlisting}[language=python]
+import pygame
+
+number: int = 1
+
+if __name__ == '__main__':
+    pygame.init()
+    #pygame.display.set_icon(ICON)
+    pygame.display.set_caption("Tetris")
+    from Screens.Screen import Screen
+    Screen()
+\end{lstlisting}
+\end{minipage}
+\end{center}

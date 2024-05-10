@@ -1,0 +1,41 @@
+\AddToShipoutPicture*{\input{tikz/titlepage}}
+\begin{titlepage}
+        \setlength{\parindent}{0pt}
+        \vspace{8cm}
+
+        \begin{center}
+        
+        \begin{tikzpicture}
+        \node[align=left]
+            (info) at (0mm,0mm){
+                \Huge
+                Generic Homework Title};
+        \node[align=left]
+            (info) at (0mm,-10mm){
+                \large
+                Your average homework/studybook template for \textbf{TeX}ting};
+        \end{tikzpicture}
+        \end{center}
+
+        \vspace{5cm}
+        \vfill
+
+        \normalsize
+        \begin{tikzpicture}
+        \node[align=left] (info) at (2mm,0mm){
+        Prof. Your Name Here\\
+        youremailhere@email.com\\
+        Department Name\\
+        University Name\\
+        Brazil\\
+        \today};
+        
+        \draw[color=main,line width=0.5mm]
+            ($(info.north west) + (-2mm,-1mm)$) --
+            ($(info.south west) + (-2mm,1mm)$);
+        \draw[color=main,fill=main]
+            ($(info.north west) + (-2mm,0mm)$) circle (0.25mm);
+        \draw[color=main,fill=main]
+            ($(info.south west) + (-2mm,0mm)$) circle (0.25mm);
+        \end{tikzpicture}
+\end{titlepage}

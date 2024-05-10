@@ -1,0 +1,7 @@
+\begin{tikzpicture}[baseline = (text.base)]
+    \node[background, inner sep=0, outer sep=0] (text) {\MakeUppercase{\rightmark}};
+    \node[style={rectangle, fill=background,minimum size=5mm}, color=background, inner xsep=0, outer sep=0] (l) at ($(text.west) + (-0.4,-0.02)$) {};
+    \begin{pgfonlayer}{background}
+        \node[fit=(text)(l), fill=main, draw=none, inner sep=2mm] {};
+    \end{pgfonlayer}
+\end{tikzpicture}

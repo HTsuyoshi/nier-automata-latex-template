@@ -1,0 +1,63 @@
+\section{Text}
+\subsection{Specifications}
+
+\begin{itemize}
+    \item \textbf{Font}: This template uses the font Helvetica by default.
+    \item \textbf{Font size}: 12pt
+    \item \textbf{Geometry width}: 6in
+    \item \textbf{Geometry height}: 8in
+\end{itemize}
+
+\subsection{Text}
+
+\subsubsection{Normal Text}
+\lipsum[1]
+
+\subsubsection{Bold Text}
+\textbf{\lipsum[2]}
+
+\subsubsection{Italic Text}
+\textit{\lipsum[3]}
+
+\subsubsection{Bold and Italic Text}
+\textbf{\textit{\lipsum[4]}}
+
+\subsubsection{Two column Text}
+
+\begin{multicols}{2}
+\lipsum[5-7]
+\end{multicols}
+
+\subsubsection{Itemize}
+
+\begin{itemize}
+    \item Item level 1
+    \begin{itemize}
+        \item Item level 2
+        \begin{itemize}
+            \item Item level 3
+        \end{itemize}
+    \end{itemize}
+    \item[\nierdiamond] Item 1
+    \item[\nierarrow] Item 2
+\end{itemize}
+
+\subsection{Hyperref}
+
+\begin{itemize}
+    \item \textbf{href}: \href{http://www.overleaf.com}{Overleaf}
+    \item \textbf{url}: \url{http://www.overleaf.com}
+    \item \textbf{file}: \href{run:./file.txt}{File.txt}
+\end{itemize}
+
+\subsection{Biblatex}
+
+\subsubsection{Cite}
+
+\lipsum[8]
+\cite{RANDOMCITE}
+\lipsum[9]
+
+\subsection{Footer}
+
+\lipsum[10]\footnote{\href{https://www.overleaf.com}{Overleaf}: Overleaf is a live \LaTeX editor.}

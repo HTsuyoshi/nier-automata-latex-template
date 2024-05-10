@@ -1,0 +1,41 @@
+\begin{tikzpicture}[remember picture, overlay]
+\ifnum \value{section}>0
+    % Top Circles
+    \draw[shadow, line width=0.5mm] ($(current page.north west) + (4,0)$) arc (360:270:4);
+    \draw[shadow, line width=0.5mm] ($(current page.north west) + (3.8,0)$) arc (360:270:3.8);
+
+    % Top Lines
+    %\draw[shadow, line width=0.5mm] (current page.north west) -- ($(current page.north west) + (6,-6)$);
+    %\draw[shadow, line width=0.5mm] ($(current page.north west) + (0,-1)$) -- ($(current page.north west) + (4.8,-5.8)$);
+    \draw[shadow, line width=0.5mm] ($(current page.north west) + (1,0)$) -- ($(current page.north west) + (5,-4)$);
+    \draw[shadow, line width=0.5mm] ($(current page.north west) + (0,-1)$) -- ($(current page.north west) + (3,-4)$);
+    \draw[shadow, line width=0.5mm] (current page.north west) -- ($(current page.north west) + (4,-4)$);
+
+    % Bottom Circles
+    \draw[shadow, line width=0.5mm] ($(current page.south east) + (0,4)$) arc (90:180:4);
+    \draw[shadow, line width=0.5mm] ($(current page.south east) + (0,3.8)$) arc (90:180:3.8);
+
+    % Bottom Lines
+    \draw[shadow, line width=0.5mm] (current page.south east) -- ($(current page.south east) - (5,-5)$);
+    \draw[shadow, line width=0.5mm] ($(current page.south east) - (0,-1)$) -- ($(current page.south east) - (4,-5)$);
+    \draw[shadow, line width=0.5mm] ($(current page.south east) - (1,0)$) -- ($(current page.south east) - (4.8,-3.8)$);
+
+    % Top Line
+    \draw[main, line width=0.5mm] ($(current page.north west) + (0,-0.8)$) -- ($(current page.north east) + (0,-0.8)$);
+    \draw[main, dash pattern={on 0.3cm off 1.2cm}, line width=1mm] ($(current page.north west) + (2.1,-0.85)$) -- ($(current page.north east) + (-2.1,-0.85)$);
+
+    % Bottom Line
+    \draw[main, line width=0.5mm] ($(current page.south west) + (0,0.8)$) -- ($(current page.south east) + (0,0.8)$);
+    \draw[main, dash pattern={on 0.3cm off 1.2cm}, line width=1mm] ($(current page.south west) + (2.1,0.85)$) -- ($(current page.south east) + (-2.1,0.85)$);
+
+    % Ball Pattern
+    \foreach \r in {0,...,10}{
+        \draw[main, fill=main] ($(2.85,1.0) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(3.15,1.0) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(3.0,1.23) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(current page.north west) + (2.85,-1.0) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(current page.north west) + (3.15,-1.0) + (\r*1.5,0)$) circle (0.05);
+        \draw[main, fill=main] ($(current page.north west) + (3.0,-1.23) + (\r*1.5,0)$) circle (0.05);
+    }
+\fi
+\end{tikzpicture}

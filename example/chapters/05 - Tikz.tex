@@ -1,0 +1,178 @@
+\section{TIkz}
+\subsection{Example - Bucket S3}
+
+\newcommand{\bucket}[4]{
+	\coordinate (C) at (#1,#2);
+	\draw (C) ellipse (1.2*#3 and 0.5*#3);
+	\coordinate (BL) at ($(C) + (-1*#3,-2*#3)$);
+	\coordinate (BR) at ($(C) + (1*#3,-2*#3)$);
+	\draw (BL) .. controls ($(C) - (0.4*#3,2.3*#3)$) and ($(C) - (-0.4*#3,2.3*#3)$) .. (BR);
+	\coordinate (TL) at ($(C) + (-1.2*#3,0)$);
+	\coordinate (TR) at ($(C) + (1.2*#3,0)$);
+	\draw (BR) -- (TR);
+	\draw (BL) -- (TL);
+	\node (C) at (#1,#2-3*#3) {#4};
+}
+
+\newcommand{\file}[4]{
+	\coordinate (C) at (#1,#2);
+	\coordinate (BL) at ($(C) + (-1*#3,-1.5*#3)$);
+	\coordinate (BR) at ($(C) + (1*#3,-1.5*#3)$);
+	\coordinate (TL) at ($(C) + (-1*#3,1.5*#3)$);
+	\coordinate (TR1) at ($(C) + (0.3*#3,1.5*#3)$);
+	\coordinate (TR2) at ($(C) + (1*#3,0.8*#3)$);
+	\coordinate (TR3) at ($(C) + (0.3*#3,0.8*#3)$);
+	\draw (TR1) -- (TL) -- (BL) -- (BR) -- (TR2) -- (TR3) -- (TR1) -- (TR2);
+	\draw ($(C) + (-0.8*#3,0.5*#3)$) -- ($(C) + (0.8*#3,0.5*#3)$);
+	\draw ($(C) + (-0.8*#3,0.2*#3)$) -- ($(C) + (0.8*#3,0.2*#3)$);
+	\draw ($(C) + (-0.8*#3,-0.1*#3)$) -- ($(C) + (0.8*#3,-0.1*#3)$);
+	\draw ($(C) + (-0.8*#3,-0.4*#3)$) -- ($(C) + (0.8*#3,-0.4*#3)$);
+	\draw ($(C) + (-0.8*#3,-0.7*#3)$) -- ($(C) + (0.8*#3,-0.7*#3)$);
+	\node at ($(C) - (0,2*#3)$) {#4};
+}
+
+\lipsum[30]
+
+\begin{center}
+\begin{tikzpicture}[scale=1, transform shape]
+    \node at (0,-1.5) {\scriptsize http://\textbf{bucket}.S3.<region>.amazonaws.com/log/\textbf{Xorg.0.log}};
+    \bucket{-1.5}{0}{0.3}{\tiny bucket}
+    \file{1.5}{-0.3}{0.3}{\tiny log/Xorg.0.log}
+    \draw[stealth-] (-1,-0.3) -- (1,-0.3);
+\end{tikzpicture}
+\end{center}
+
+\lipsum[31]
+
+\subsection{Example - VM and container comparison}
+
+\lipsum[32-33]
+
+\begin{center}
+\begin{multicols}{2}
+\begin{tikzpicture}
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (0,-2.25);
+	\coordinate (C) at (0,-0.75);
+	\coordinate (D) at (0,-1.5);
+	\coordinate (E) at (-0.925,1.25);
+	\coordinate (F) at (0.925,1.25);
+	\coordinate (G) at (0.925,1.5);
+	\coordinate (H) at (0.925,0.5);
+	\coordinate (I) at (-0.925,1.5);
+	\coordinate (J) at (-0.925,0.5);
+	\node at (A) [draw,thick,minimum width=4cm,minimum height=6cm] {};
+	\node at (B) [draw,thick,minimum width=3.5cm,minimum height=0.5cm] {};
+	\node at (B) {\footnotesize Máquina host};
+	\node at (C) [draw,thick,minimum width=3.5cm,minimum height=0.5cm] {};
+	\node at (C) {\footnotesize HyperVisor};
+	\node at (D) [draw,thick,minimum width=3.5cm,minimum height=0.5cm] {};
+	\node at (D) {\footnotesize SO do host};
+	\node at (E) [draw,thick,minimum width=1.625cm,minimum height=3cm] {};
+	\node at ($(E)+(0,1.25)$) {\scriptsize VM};
+	\node at (F) [draw,thick,minimum width=1.625cm,minimum height=3cm] {};
+	\node at ($(F)+(0,1.25)$) {\scriptsize VM};
+	\node (rect) at (G) [draw,thick,minimum width=1.125cm,minimum height=1cm] {};
+	\node at (G) {\tiny App 2};
+	\node at (H) [draw,thick,minimum width=1.125cm,minimum height=1cm] {};
+	\node[align=center] at (H) {\tiny Guest OS\\ \tiny Windows};
+	\node at (I) [draw,thick,minimum width=1.125cm,minimum height=1cm] {};
+	\node at (I) {\tiny App 1};
+	\node at (J) [draw,thick,minimum width=1.125cm,minimum height=1cm] {};
+	\node[align=center] at (J) {\tiny Guest OS\\ \tiny Linux};
+\end{tikzpicture}
+\columnbreak
+\begin{tikzpicture}
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (0,-2.25);
+	\coordinate (C) at (0,-0.75);
+	\coordinate (D) at (0,-1.5);
+	\coordinate (E) at (-0.925,1.25);
+	\coordinate (F) at (0.925,1.25);
+	\coordinate (G) at (0.925,1);
+	\coordinate (H) at (-0.925,1);
+	\node (rect) at (A) [draw,thick,minimum width=4cm,minimum height=6cm] {};
+	\node (rect) at (B) [draw,thick,minimum width=3.5cm,minimum height=0.5cm] {};
+	\node at (B) {\footnotesize Máquina host};
+	\node (rect) at (C) [draw,thick,minimum width=3.5cm,minimum height=0.5cm] {};
+	\node at (C) {\footnotesize Container Engine};
+	\node (rect) at (D) [draw,thick,minimum width=3.5cm,minimum height=0.5cm] {};
+	\node at (D) {\footnotesize SO do host};
+	\node (rect) at (E) [draw,thick,minimum width=1.625cm,minimum height=3cm] {};
+	\node at ($(E)+(0,1.25)$) {\scriptsize Container};
+	\node (rect) at (F) [draw,thick,minimum width=1.625cm,minimum height=3cm] {};
+	\node at ($(F)+(0,1.25)$) {\scriptsize Container};
+	\node (rect) at (G) [draw,thick,minimum width=1.125cm,minimum height=2cm] {};
+	\node at (G) {\tiny App 2};
+	\node (rect) at (H) [draw,thick,minimum width=1.125cm,minimum height=2cm] {};
+	\node[align=center] at (H) {\tiny App 1};
+\end{tikzpicture}
+\end{multicols}
+\end{center}
+
+\lipsum[33]
+
+\subsection{Example - Math geometry}
+
+\lipsum[34-35]
+
+\newcommand{\figuresize}{80mm}
+\newcommand{\degreecolor}{green!20!white}
+\newcommand{\degreebordercolor}{green!50!black}
+\newcommand{\degree}{^{\circ}}
+\newcommand{\makeangle}[7]{
+	\begin{scope}
+	\path[clip] (#2) -- (#1) -- (#3);
+	\fill[green!20!white, draw=green!50!black] (#2) circle (#5);
+	\node at ($(#2)+(#6:#7)$) {$#4^{\circ}$};
+	\end{scope}
+}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[x=\figuresize,y=\figuresize]
+	\coordinate [label=below:$B$] (B) at (0,0);
+	\coordinate [label=below right:$C$] (C) at (1,0);
+	\coordinate [label=above left:$D$] (D) at (0.03,0.17); \coordinate [label=above:$A$] (A) at (-0.27,1.51);
+	\coordinate [label=above:$E$] (E) at (0.36,0.76);
+	\coordinate [label=above:$F$] (F) at (0.17,0.99);
+	\coordinate [label=below:$G$] (G) at (-0.53,0);
+	\coordinate [label=left:$H$] (H) at (-0.4,0.76);
+	\coordinate [label=left:$I$] (I) at (-0.49,0.26);
+	\coordinate [label=left:$J$] (J) at (-0.38,0.89);
+	\coordinate [label=left:$K$] (K) at (-0.35,1.02);
+	\coordinate [label=below:$L$] (L) at (0.23,0);
+	\coordinate [label=above left:$M$] (M) at (0.25,0.13);
+	\coordinate [label=above left:$N$] (N) at (-0.13,0.76);
+	\coordinate (AEmid) at ($(A)!0.5!(E)$);
+	\coordinate (CEmid) at ($(C)!0.5!(E)$);
+	\coordinate (CDmid) at ($(C)!0.5!(D)$);
+
+	\node at (CDmid)[above] {$a$};
+	\node at (AEmid)[above] {$a$};
+	\node at (CEmid)[above] {$a$};
+	
+	\makeangle{D}{B}{C}{80}{0.08}{40}{0.12}
+	\makeangle{B}{C}{D}{10}{0.12}{175}{0.30}
+	\makeangle{A}{C}{D}{40}{0.08}{150}{0.12}
+	\makeangle{B}{A}{C}{x}{0.08}{295}{0.12}
+	\makeangle{D}{E}{C}{50}{0.08}{285}{0.12}
+	\makeangle{D}{E}{C}{20}{0.08}{250}{0.24}
+	\makeangle{C}{D}{E}{70}{0.08}{25}{0.12}
+	\makeangle{B}{F}{C}{50}{0.08}{285}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{20}{0.12}
+	\makeangle{A}{G}{B}{40}{0.08}{60}{0.12}
+	\makeangle{H}{E}{I}{30}{0.08}{195}{0.12}
+	\makeangle{I}{E}{G}{10}{0.08}{217}{0.24}
+	\makeangle{B}{A}{G}{20}{0.08}{270}{0.24}
+
+	\draw[color=main] (A) -- (G) -- (B) -- (D) -- (C) -- (B) -- (A) -- (C);
+	\draw[color=main] (H) -- (E) -- (D) -- (F);
+	\draw[color=main] (H) -- (G);
+	\draw[color=main] (D) -- (I) -- (E) -- (K);
+	\draw[color=main] (G) -- (E) -- (J);
+	\draw[color=main] (E) -- (L);
+	\draw[color=extra1, ultra thick] (A) -- (H) -- (E) -- cycle;
+	\draw[color=codestring, ultra thick] (K) -- (I) -- (E) -- cycle;
+	\end{tikzpicture}
+\end{figure}

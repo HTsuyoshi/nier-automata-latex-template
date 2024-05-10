@@ -1,0 +1,42 @@
+\color{background}
+\pagecolor{main}
+\fancyfoot[C]{\begin{center}\nieritem\end{center}}
+{
+\hypersetup{hidelinks}
+\tableofcontents
+\vspace{4mm}
+}
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}
+    \draw[color=background,line width=0.5mm]
+        (-65mm,0mm) -- (-3mm,0mm);
+    \draw[color=background,line width=0.5mm]
+        ( 65mm,0mm) -- ( 3mm,0mm);
+    \draw[color=background, fill=background]
+        (-66.5mm,0mm) circle (0.25mm);
+    \draw[color=background, fill=background]
+        ( 66.5mm,0mm) circle (0.25mm);
+    \node[diamond,
+        fill=background,
+        minimum width=2mm,
+        minimum height=2mm,
+        inner sep=0mm] (a1) at (-1.2mm,0mm) {};
+    \node[diamond,
+        fill=background,
+        minimum width=2mm,
+        minimum height=2mm,
+        inner sep=0mm] (a2) at (1.2mm,0mm) {};
+    \node[diamond,
+        fill=background,
+        minimum width=2mm,
+        minimum height=2mm,
+        inner sep=0mm] (a3) at (0mm,1.2mm) {};
+    \node[diamond,
+        fill=background,
+        minimum width=2mm,
+        minimum height=2mm,
+        inner sep=0mm] (a4) at (0mm,-1.2mm) {};
+\end{tikzpicture}
+\end{figure}
