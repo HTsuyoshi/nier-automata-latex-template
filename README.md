@@ -1,6 +1,6 @@
 # Nier automata themed LaTeX template
 
-The code is also available in [overleaf](https://www.overleaf.com/read/rdmphmdjfppb#078f96)
+The code is also available in [overleaf](https://www.overleaf.com/latex/templates/nier-automata-inspired-template/bmvgpjcchzwy)
 
 ### Example
 
